@@ -1,0 +1,31 @@
+swagger: '2.0'
+info:
+  description: "This is a simple chatbot to get weather condition for a specific location."
+  version: 1.0.0
+  title: Rule-Based Chatbot
+host: petstore.swagger.io
+basePath: /v2
+schemes:
+  - http
+paths:
+  /weather:
+    get:
+      summary: get weather forecast
+      description: The endpoint takes a query parameter names 'expression' and returns a json object with 'answer' as key.
+      operationId: getWeather
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: expression
+          description: user sentence e.g. what is the weather in Sydney
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              answer:
+                type: string
